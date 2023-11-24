@@ -18,24 +18,24 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("View Did load Called")
+        print("View Did load of VC Called")
         customViewThroughCode()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        print("View Will Appear Called")
+        print("View Will Appear of VC Called")
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        print("View Did Appear Called")
+        print("View Did Appear of VC Called")
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        print("View Will Disappear called")
+        print("View Will Disappear of VC called")
     }
     
     override func viewDidDisappear(_ animated: Bool) {
-        print("View Did Disappear called")
+        print("View Did Disappear of VC called")
     }
     
     func customViewThroughCode(){
@@ -114,6 +114,10 @@ class ViewController: UIViewController {
     
     @objc func btnSubmitClicked(){
         print("Submit CLicked")
+        let thirdViewController = self.storyboard?.instantiateViewController(withIdentifier: "ThirdViewController") as! ThirdViewController
+        self.navigationController?.pushViewController(
+            thirdViewController,
+            animated: true)
     }
     
     @objc func btnSaveClicked(){
