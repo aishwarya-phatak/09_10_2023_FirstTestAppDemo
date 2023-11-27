@@ -115,6 +115,9 @@ class ViewController: UIViewController {
     @objc func btnSubmitClicked(){
         print("Submit CLicked")
         let thirdViewController = self.storyboard?.instantiateViewController(withIdentifier: "ThirdViewController") as! ThirdViewController
+        thirdViewController.dataContainer = self.userNameTextField?.text
+    
+        //push view controller
         self.navigationController?.pushViewController(
             thirdViewController,
             animated: true)

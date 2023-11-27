@@ -10,11 +10,19 @@ import UIKit
 class ThirdViewController: UIViewController {
     
     @IBOutlet weak var welcomeLabel: UILabel!
-    @IBOutlet weak var userNameTextField: UITextField!
+    
+    @IBOutlet weak var userNameTextField:UITextField!
+    @IBOutlet weak var middleNametextField: UITextField!
+    @IBOutlet weak var lastNameTextField: UITextField!
+    
+    
+    var dataContainer : String?
     
     override func viewDidLoad() {
-        print("View Did Load of TVC Called")
         super.viewDidLoad()
+        navigationItem.hidesBackButton = true
+        print("View Did Load of TVC Called")
+        welcomeLabel.text = dataContainer
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,5 +44,14 @@ class ThirdViewController: UIViewController {
     @IBAction func btnSubmit(_ sender: Any) {
         let retrivedText = userNameTextField.text
         welcomeLabel.text = "Welcome " + retrivedText!
+        
+        let fourthViewController = (self.storyboard?.instantiateViewController(identifier: "FourthViewController"))! as FourthViewController
+        fourthViewController.firstNameContainer = userNameTextField.text
+        fourthViewController.middleNameContainer = middleNametextField.text
+        fourthViewController.lastNameContainer = lastNameTextField.text
+        navigationController?.pushViewController(fourthViewController,animated: true)
+        
+        //pop view controller 
+       // navigationController?.popViewController(animated: true)
     }
 }
